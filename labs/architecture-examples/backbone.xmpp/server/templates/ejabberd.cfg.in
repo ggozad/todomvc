@@ -5,17 +5,6 @@
 {listen,
   [
 
-  {{5222, {127, 0, 0, 1}}, ejabberd_c2s, [
-      {access, c2s},
-      {shaper, c2s_shaper},
-      {max_stanza_size, 65536}
-           ]},
-
-  {{5269, {127, 0, 0, 1}}, ejabberd_s2s_in, [
-         {shaper, s2s_shaper},
-         {max_stanza_size, 131072}
-        ]},
-
   {{5280, {127, 0, 0, 1}}, ejabberd_http, [
        http_bind,
        web_admin
@@ -48,13 +37,6 @@
 
 {access, configure, [{allow, admin}]}.
 
-{access, muc_admin, [{allow, admin}]}.
-
-{access, muc, [{allow, all}]}.
-{access, muc_create, [{allow, local}]}.
-
-{access, register, [{allow, all}]}.
-
 {access, pubsub_createnode, [{allow, local}]}.
 
 
@@ -62,16 +44,8 @@
 
 {modules,
  [
-  {mod_adhoc,    []},
-  {mod_announce, [{access, announce}]},
-  {mod_caps,     []},
-  {mod_configure,[]},
   {mod_disco,    []},
   {mod_http_bind,[]},
-  {mod_last,     []},
-  {mod_offline,  []},
-  {mod_privacy,  []},
-  {mod_private,  []},
   {mod_pubsub,   [
       {access_createnode, pubsub_createnode},
       {ignore_pep_from_offline, false},
@@ -79,16 +53,6 @@
       {nodetree, "dag"},
       {plugins, ["flat", "pep"]},
       {max_items_node, ${pubsub_max_items_node}}
-     ]},
-  {mod_register, [
-      {welcome_message, {"Welcome!",
-             "Welcome to ${xmppdomain} Jabber server."}},
-      {access, register}
-     ]},
-  {mod_roster,   []},
-  {mod_shared_roster,[]},
-  {mod_time,     []},
-  {mod_vcard,    []},
-  {mod_version,  []}
+     ]}
  ]}.
 

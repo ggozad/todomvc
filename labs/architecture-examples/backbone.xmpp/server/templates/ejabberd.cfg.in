@@ -5,7 +5,7 @@
 {listen,
   [
 
-  {{5280, {127, 0, 0, 1}}, ejabberd_http, [
+  {{5281, {127, 0, 0, 1}}, ejabberd_http, [
        http_bind,
        web_admin
       ]}

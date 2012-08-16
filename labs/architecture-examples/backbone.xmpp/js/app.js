@@ -26,7 +26,7 @@ $(function() {
     }
 
 
-    XMPPConnection.connect('foo@localhost/' + resource, 'foo', function (status) {
+    XMPPConnection.connect('foo@todomvc.crypho.com/' + resource, 'foo', function (status) {
         // Set the connection on the storage
         if (status === Strophe.Status.CONNECTED) {
             this.xmlInput = function (data) { console.log ('IN:', data);};

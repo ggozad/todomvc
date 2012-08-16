@@ -37,7 +37,7 @@
 
 {access, configure, [{allow, admin}]}.
 
-{access, pubsub_createnode, [{allow, local}]}.
+{access, pubsub_createnode, [{allow, admin}]}.
 
 
 {language, "en"}.

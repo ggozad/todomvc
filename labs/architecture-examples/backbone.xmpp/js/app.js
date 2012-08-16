@@ -26,7 +26,7 @@ $(function() {
     }
 
 
-    XMPPConnection.connect('admin@localhost/' + resource, 'admin', function (status) {
+    XMPPConnection.connect('foo@localhost/' + resource, 'foo', function (status) {
         // Set the connection on the storage
         if (status === Strophe.Status.CONNECTED) {
             this.xmlInput = function (data) { console.log ('IN:', data);};
@@ -37,18 +37,7 @@ $(function() {
 
             // Save the connection
             app.connection = this;
-
-
-            // Create the node. If this fails it's probably cause it's already there.
-            // If it is created succesfully then subscribe to it.
-            // All this should be happening on the server...
-            var cp = app.connection.PubSub.createNode('todos');
-            cp.done(function () {
-                app.connection.PubSub.subscribe('todos');
-            });
-            cp.always(function () {
-                app.start();
-            });
+            app.start();
         }
     });
 

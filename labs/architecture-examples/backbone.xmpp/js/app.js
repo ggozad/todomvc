@@ -1,5 +1,5 @@
 var app = app || {},
-    boshUrl = 'http://localhost:5280/http-bind';
+    boshUrl = 'http://todomvc.crypho.com/http-bind';
 
 app.start = function () {
     // Create our global collection of **Todos**.
